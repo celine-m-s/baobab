@@ -1,7 +1,7 @@
 Baobab::Application.routes.draw do
 
   devise_for :users
-  root :to => "organizations#index"
+  root :to => "organizations#dashboard"
 
   resources :organizations
 
