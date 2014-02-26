@@ -6,25 +6,20 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-  <!-- temporary alerts -->
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'My profile', edit_user_registration_path %> |
-    <%= link_to 'My gallery', organization_path(current_user.organization_id) %>
-    <%= link_to 'My gallery', organization_path(current_user.organization_id) %>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> |
-    <%= link_to "Login", new_user_session_path  %>
-  <% end %>
-
+  <div class="container">
+  <%= render 'layouts/header'%>
+  <%= render 'layouts/messages'%>
   <%= yield %>
+  </div>
+
+ <!-- temporary alerts -->
+<script type="text/javascript">
+$('.alert').delay(7000).fadeOut();
+</script>
 
 </body>
 </html>
