@@ -62,7 +62,7 @@ class OrganizationsController < ApplicationController
   end
 
   def dashboard
-
+    @organization = current_user.organization
   end
 
   private

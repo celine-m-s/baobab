@@ -1,1 +1,10 @@
-<h3>Hello !</h3>
+<h2>Hello !</h2>
+
+<h3>My artists:</h3>
+
+<p>
+  <% @organization.artists.each do |artist| %>
+  	<li><%= link_to "#{artist.name}", organization_artist_path(@organization, artist)  %></li>
+  <% end %>
+
+</p>

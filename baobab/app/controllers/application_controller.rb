@@ -4,5 +4,5 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   # Protect the whole application access with Devise
 
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 end
