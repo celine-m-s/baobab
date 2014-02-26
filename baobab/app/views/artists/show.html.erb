@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <strong>Vat number:</strong>
+  <%= @artist.vat_number %>
+</p>
+
+<%= link_to 'Edit', edit_organization_artist_path(@organization, @artist) %> |
+<%= link_to 'Back', organization_artists_path(@organization) %>

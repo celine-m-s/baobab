@@ -1,0 +1,29 @@
+<h1>Listing artists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Vat number</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @artists.each do |artist| %>
+      <tr>
+        <td><%= artist.name %></td>
+        <td><%= artist.vat_number %></td>
+        <td><%= link_to 'Show', organization_artist_path(@organization, artist) %></td>
+        <td><%= link_to 'Edit', edit_organization_artist_path(@organization, artist) %></td>
+        <td><%= link_to 'Destroy', organization_artist_path(@organization, artist), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Artist', new_organization_artist_path %>
