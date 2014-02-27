@@ -1,0 +1,85 @@
+<%= form_for(@artwork, :url => (@artist.nil? ? organization_artworks_path(@organization) : organization_artist_artwork_path(@organization, @artist, @artwork))) do |f| %>
+  <% if @artwork.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@artwork.errors.count, "error") %> prohibited this artwork from being saved:</h2>
+
+      <ul>
+      <% @artwork.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :artist_id %><br>
+    <%= f.select(:artist_id, @artists_list, {include_blank: 'Select Artist'}) %>
+  </div>
+
+  <p><%= link_to 'Add a new artist', new_organization_artist_path(current_user.organization_id)%></p>
+
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <p><%= f.check_box :on_website %>
+    <%= f.label :on_website %></p>
+  </div>
+  <div class="field">
+    <%= f.label :order_status %><br>
+    <%= f.text_field :order_status %>
+  </div>
+  <div class="field">
+    <%= f.label :bibliography %><br>
+    <%= f.text_area :bibliography %>
+  </div>
+  <div class="field">
+    <%= f.label :condition_report %><br>
+    <%= f.text_area :condition_report %>
+  </div>
+  <div class="field">
+    <%= f.label :edition_type %><br>
+    <%= f.text_field :edition_type %>
+  </div>
+  <div class="field">
+    <%= f.label :provenance %><br>
+    <%= f.text_field :provenance %>
+  </div>
+  <div class="field">
+    <%= f.label :signature %><br>
+    <%= f.text_field :signature %>
+  </div>
+  <div class="field">
+    <%= f.label :medium %><br>
+    <%= f.text_field :medium %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br>
+    <%= f.number_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :width %><br>
+    <%= f.number_field :width %>
+  </div>
+  <div class="field">
+    <%= f.label :depth %><br>
+    <%= f.number_field :depth %>
+  </div>
+  <div class="field">
+    <%= f.label :estimation %><br>
+    <%= f.number_field :estimation %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
