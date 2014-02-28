@@ -1,11 +1,19 @@
-Baobab::Application.routes.draw do
+  Baobab::Application.routes.draw do
 
-  devise_for :users
+
   root :to => "organizations#dashboard"
+  
+  devise_for :users
 
   resources :organizations do
-    resources :artists    
+    resources :artists   
   end
+
+  resources :customers
+
+  
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

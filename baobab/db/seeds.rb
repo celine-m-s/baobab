@@ -16,4 +16,3 @@ Organization.create(name: "Alice's")
 u.organization_id = 1
 
 u.save!(:validate => false)
-

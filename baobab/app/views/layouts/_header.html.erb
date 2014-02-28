@@ -1,31 +1,26 @@
-<div class="row">
-	<nav class="span12">
-			<div class="navbar">
-				<div class="navbar-inner">
-					<%= link_to t('Baobab'), root_path, class: 'brand' %>
-					
-					<ul class="nav">
-						<li class="divider-vertical"></li>
-
-						<% if user_signed_in? %>
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t 'profile.Profile' %></a>
-							<ul class="dropdown-menu">
-							<!--Logged in as <strong><%= current_user.email %></strong>.-->
-						<li><%= link_to 'My profile', edit_user_registration_path %></li>
-						<li><%= link_to 'My gallery', organization_path(current_user.organization_id) %></li>
-						<li><%= link_to 'Add a new artist', new_organization_artist_path(current_user.organization_id)%></li>
-						<li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
-						</ul>
-						</li>
-						<% else %>
-						  <li><%= link_to "Sign up", new_user_registration_path %></li>
-						  <li><%= link_to "Login", new_user_session_path  %></li>
-						<% end %>
-						
-					</ul>
-				</div>
-			</div>
-		</nav>
-
+<div class="navbar">
+	<div class="navbar-inner">
+		<%= link_to t('Baobab'), root_path, class: 'brand' %>
+		<ul class="nav">
+			<li class="divider-vertical"></li>
+			<% if user_signed_in? %>
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t 'profile.Profile' %></a>
+				<ul class="dropdown-menu">
+				<!--Logged in as <strong><%= current_user.email %></strong>.-->
+					<li><%= link_to 'My profile', edit_user_registration_path %></li>
+					<li><%= link_to 'My gallery', organization_path(current_user.organization_id) %></li>
+					<li><%= link_to 'Add a new artist', new_organization_artist_path(current_user.organization_id) %></li>
+					<li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
+				</ul>
+				<li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
+				<li><%= link_to 'My gallery', organization_path(current_user.organization_id) %></li>
+			</li>
+			<% else %>
+			  <li><%= link_to "Sign up", new_user_registration_path %></li>
+			  <li><%= link_to "Login", new_user_session_path  %></li>
+			<% end %>
+				
+		</ul>
+	</div>
 </div>
