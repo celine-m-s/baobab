@@ -1,4 +1,4 @@
-  Baobab::Application.routes.draw do
+   Baobab::Application.routes.draw do
 
 
   root :to => "organizations#dashboard"
@@ -11,9 +11,11 @@
     resources :artists do
       resources :artworks, except: [:new, :index, :create]
     end
+
+    resources :customers
   end
 
-  resources :customers
+
 
 
 # new_organization_artist_artwork_path   

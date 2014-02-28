@@ -11,6 +11,7 @@
 					<li><%= link_to 'My profile', edit_user_registration_path %></li>
 					<li><%= link_to 'My gallery', organization_path(current_user.organization_id) %></li>
 					<li><%= link_to 'Add a new artist', new_organization_artist_path(current_user.organization_id) %></li>
+					<li><%= link_to 'Add a new artwork', new_organization_artwork_path(current_user.organization_id)%></li>
 					<li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
 				</ul>
 				</li>
