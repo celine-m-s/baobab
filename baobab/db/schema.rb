@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20140227143819) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "organization_id"
+    t.integer  "roles",                  default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
