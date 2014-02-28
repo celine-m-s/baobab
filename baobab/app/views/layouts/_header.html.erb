@@ -13,8 +13,7 @@
 					<li><%= link_to 'Add a new artist', new_organization_artist_path(current_user.organization_id) %></li>
 					<li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
 				</ul>
-				<li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
-				<li><%= link_to 'My gallery', organization_path(current_user.organization_id) %></li>
+				</li>
 			</li>
 			<% else %>
 			  <li><%= link_to "Sign up", new_user_registration_path %></li>
