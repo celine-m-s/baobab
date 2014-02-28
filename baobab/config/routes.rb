@@ -10,7 +10,7 @@
 
     resources :artists do
       resources :artworks, except: [:new, :index, :create]
-    end  
+    end
   end
 
   resources :customers
