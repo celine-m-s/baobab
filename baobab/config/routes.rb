@@ -1,10 +1,29 @@
-Baobab::Application.routes.draw do
+  Baobab::Application.routes.draw do
 
-  devise_for :users
+
   root :to => "organizations#dashboard"
+  
+  devise_for :users
 
-  resources :organizations
+  resources :organizations do
+    resources :artworks, only: [:new, :index, :create]
 
+    resources :artists do
+      resources :artworks, except: [:new, :index, :create]
+    end
+  end
+
+  resources :customers
+
+
+# new_organization_artist_artwork_path   
+
+# GET   '/organizations/:organization_id/artists/:artist_id/artworks/new(.:format)', to:   'artworks#new'
+
+# organization_artist_artworks_path   
+
+# GET   '/organizations/:organization_id/artists/:artist_id/artworks(.:format)', to: 'artworks#index', as: '#'
+# POST   '/organizations/:organization_id/artists/:artist_id/artworks(.:format)',  to: 'artworks#create', as: '#'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

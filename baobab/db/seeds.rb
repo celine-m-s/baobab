@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+u = User.new(
+  :email => "alice@youpi.com",
+  :password => '12341234'
+)
+
+Organization.create(name: "Alice's")
+
+u.organization_id = 1
+
+u.save!(:validate => false)

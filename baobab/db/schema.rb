@@ -11,7 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227100949) do
+ActiveRecord::Schema.define(version: 20140227143819) do
+
+  create_table "artists", force: true do |t|
+    t.string   "name"
+    t.string   "vat_number"
+    t.integer  "organization_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "artworks", force: true do |t|
+    t.string   "title"
+    t.integer  "year"
+    t.boolean  "on_website"
+    t.string   "order_status"
+    t.text     "bibliography"
+    t.text     "condition_report"
+    t.string   "edition_type"
+    t.string   "provenance"
+    t.string   "signature"
+    t.string   "medium"
+    t.text     "comment"
+    t.integer  "height"
+    t.integer  "width"
+    t.integer  "depth"
+    t.integer  "estimation"
+    t.integer  "artist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.string   "id_card_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "organizations", force: true do |t|
     t.string   "name"
