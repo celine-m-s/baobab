@@ -1,10 +1,11 @@
-Baobab::Application.routes.draw do
+  Baobab::Application.routes.draw do
 
-  devise_for :users
+
   root :to => "organizations#dashboard"
+  
+  devise_for :users
 
   resources :organizations do
-
     resources :artworks, only: [:new, :index, :create]
 
     resources :artists do
@@ -12,6 +13,7 @@ Baobab::Application.routes.draw do
     end  
   end
 
+  resources :customers
 
 
 # new_organization_artist_artwork_path   

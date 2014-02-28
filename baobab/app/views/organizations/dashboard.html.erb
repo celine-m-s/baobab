@@ -3,10 +3,10 @@
 <h3>My artists:</h3>
 
 <p>
+<% if user_signed_in? %>
   <% @organization.artists.each do |artist| %>
   	<li><%= link_to "#{artist.name}", organization_artist_path(@organization, artist)  %></li>
   <% end %>
-
 </p>
 
 <h3>My artworks:</h3>
@@ -15,4 +15,5 @@
 	<% @organization.artworks.each do |artwork| %>
 		<li><%= link_to "#{artwork.title}", organization_artist_artwork_path(@organization, artwork.artist_id, artwork.id) %>  </li>
 	<% end %>
+<% end %>
 </p>
