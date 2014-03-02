@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Entry date:</strong>
+  <%= @inventory_item.entry_date %>
+</p>
+
+<p>
+  <strong>Exit date:</strong>
+  <%= @inventory_item.exit_date %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @inventory_item.location %>
+</p>
+
+<p>
+  <strong>Artwork:</strong>
+  <%= @inventory_item.artwork %>
+</p>
+
+<p>
+  <strong>Edition:</strong>
+  <%= @inventory_item.edition %>
+</p>
+
+<%= link_to 'Edit', edit_organization_inventory_item_path(@organization, @inventory_item) %> |
+<%= link_to 'Back', organization_inventory_items_path(@organization) %>

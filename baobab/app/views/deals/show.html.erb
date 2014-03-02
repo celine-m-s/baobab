@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @deal.customer %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @deal.date %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @deal.price %>
+</p>
+
+<p>
+  <strong>Deposit:</strong>
+  <%= @deal.deposit %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @deal.due_date %>
+</p>
+
+<p>
+  <strong>Payment type:</strong>
+  <%= @deal.payment_type %>
+</p>
+
+<p>
+  <strong>Invoice number:</strong>
+  <%= @deal.invoice_number %>
+</p>
+
+<p>
+  <strong>Shipping cost:</strong>
+  <%= @deal.shipping_cost %>
+</p>
+
+<p>
+  <strong>Vat:</strong>
+  <%= @deal.vat %>
+</p>
+
+<p>
+  <strong>Payment status:</strong>
+  <%= @deal.payment_status %>
+</p>
+
+<%= link_to 'Edit', edit_deal_path(@deal) %> |
+<%= link_to 'Back', deals_path %>

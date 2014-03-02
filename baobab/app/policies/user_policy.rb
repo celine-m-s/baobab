@@ -1,7 +1,7 @@
 class UserPolicy < ApplicationPolicy
   class Scope < Struct.new(:user, :scope)
     def resolve
-      Scope
+      scope
     end
   end
 end

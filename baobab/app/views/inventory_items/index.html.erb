@@ -1,0 +1,31 @@
+<h1>Inventory items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Entry date</th>
+      <th>Exit date</th>
+      <th>Location</th>
+      <th>Artwork Title</th>
+      <th>Edition</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inventory_items.each do |inventory_item| %>
+      <tr>
+        <td><%= inventory_item.entry_date %></td>
+        <td><%= inventory_item.exit_date %></td>
+        <td><%= inventory_item.location %></td>
+        <td><%= inventory_item.artwork.title %></td>
+        <td><%= inventory_item.edition %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inventory item', new_organization_inventory_item_path(@organization) %>

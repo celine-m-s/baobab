@@ -33,7 +33,7 @@ class ArtworksController < ApplicationController
 
     respond_to do |format|
       if @artwork.save
-        format.html { redirect_to organization_artworks_path(@organization), notice: 'Artwork was successfully created.' }
+        format.html { redirect_to organization_artworks_url(@organization), notice: 'Artwork was successfully created.' }
         format.json { render action: 'show', status: :created, location: @artwork }
       else
         format.html { render action: 'new' }
@@ -47,7 +47,7 @@ class ArtworksController < ApplicationController
   def update
     respond_to do |format|
       if @artwork.update(artwork_params)
-        format.html { redirect_to organization_artworks_path(@organization), notice: 'Artwork was successfully updated.' }
+        format.html { redirect_to organization_artworks_url(@organization), notice: 'Artwork was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -76,12 +76,13 @@ class ArtworksController < ApplicationController
       @artist = Artist.find(params[:artist_id])
     end
 
+    def set_organization
+      @organization = Organization.find(params[:organization_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def artwork_params
       params.require(:artwork).permit(:title, :year, :on_website, :order_status, :bibliography, :condition_report, :edition_type, :provenance, :signature, :medium, :comment, :height, :width, :depth, :estimation, :artist_id)
     end
 
-    def set_organization
-      @organization = Organization.find(params[:organization_id])
-    end
 end

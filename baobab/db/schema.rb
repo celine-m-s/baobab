@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227143819) do
+ActiveRecord::Schema.define(version: 20140302150336) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -45,6 +45,38 @@ ActiveRecord::Schema.define(version: 20140227143819) do
   create_table "customers", force: true do |t|
     t.string   "name"
     t.string   "id_card_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "deals", force: true do |t|
+    t.integer  "customer_id"
+    t.date     "date"
+    t.float    "price"
+    t.float    "deposit"
+    t.date     "due_date"
+    t.string   "payment_type"
+    t.integer  "invoice_number"
+    t.float    "shipping_cost"
+    t.float    "vat"
+    t.string   "payment_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: true do |t|
+    t.integer  "artwork_id"
+    t.string   "edition"
+    t.date     "entry_date"
+    t.date     "exit_date"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items_deals", id: false, force: true do |t|
+    t.integer  "item_id"
+    t.integer  "deal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

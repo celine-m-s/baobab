@@ -20,4 +20,5 @@ class OrganizationPolicy < ApplicationPolicy
     def create?
      user.admin? && user.organization = @record
     end
+
 end

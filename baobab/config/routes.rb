@@ -1,8 +1,11 @@
   Baobab::Application.routes.draw do
 
 
+
+  resources :deals
+
   root :to => "organizations#dashboard"
-  
+
   devise_for :users
 
   resources :organizations do
@@ -11,16 +14,18 @@
     resources :artists do
       resources :artworks, except: [:new, :index, :create]
     end
+
+    resources :inventory_items
   end
+    resources :customers
 
-  resources :customers
 
 
-# new_organization_artist_artwork_path   
+# new_organization_artist_artwork_path
 
 # GET   '/organizations/:organization_id/artists/:artist_id/artworks/new(.:format)', to:   'artworks#new'
 
-# organization_artist_artworks_path   
+# organization_artist_artworks_path
 
 # GET   '/organizations/:organization_id/artists/:artist_id/artworks(.:format)', to: 'artworks#index', as: '#'
 # POST   '/organizations/:organization_id/artists/:artist_id/artworks(.:format)',  to: 'artworks#create', as: '#'
