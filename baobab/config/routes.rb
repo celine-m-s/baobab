@@ -15,6 +15,8 @@
     resources :customers
   end
 
+  resources :pictures
+
 
 
 

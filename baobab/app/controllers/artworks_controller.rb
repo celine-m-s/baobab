@@ -12,12 +12,14 @@ class ArtworksController < ApplicationController
   # GET /artworks/1
   # GET /artworks/1.json
   def show
+    @pictures = @artwork.pictures.all
   end
 
   # GET /artworks/new
   def new
     @artists_list = Artist.all.collect {|p| [ p.name, p.id ] }
     @artwork = Artwork.new
+    @pictures = @artwork.pictures.build
   end
 
   # GET /artworks/1/edit
@@ -31,8 +33,12 @@ class ArtworksController < ApplicationController
 
     @artwork = Artwork.new(artwork_params)
 
+    @picture = @artwork.pictures.build()
+    @picture.image = params[:artwork][:pictures_attributes]["0"][:image]
+    ca pete
+
     respond_to do |format|
-      if @artwork.save
+      if @artwork.save 
         format.html { redirect_to organization_artworks_path(@organization), notice: 'Artwork was successfully created.' }
         format.json { render action: 'show', status: :created, location: @artwork }
       else
@@ -45,10 +51,15 @@ class ArtworksController < ApplicationController
   # PATCH/PUT /artworks/1
   # PATCH/PUT /artworks/1.json
   def update
+
+
     respond_to do |format|
       if @artwork.update(artwork_params)
         format.html { redirect_to organization_artworks_path(@organization), notice: 'Artwork was successfully updated.' }
         format.json { head :no_content }
+        # if @post.update(post_params)
+        #        params[:post_attachments]['avatar'].each do |a|
+        #          @post_attachment = @post.post_attachments.create!(:avatar => a, :post_id => @post.id)
       else
         format.html { render action: 'edit' }
         format.json { render json: @artwork.errors, status: :unprocessable_entity }

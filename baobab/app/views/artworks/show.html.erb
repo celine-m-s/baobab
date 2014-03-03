@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <% @pictures.each do |p| %>
+    <%= p.inspect %>
+    <%= link_to "Destroy", p, method: :delete %>
+  <% end %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @artwork.title %>
 </p>
