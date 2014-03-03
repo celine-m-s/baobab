@@ -50,5 +50,5 @@
   <%= @deal.payment_status %>
 </p>
 
-<%= link_to 'Edit', edit_deal_path(@deal) %> |
-<%= link_to 'Back', deals_path %>
+<%= link_to 'Edit', edit_organization_deal_path(@organization, @deal) %> |
+<%= link_to 'Back', organization_deals_path(@organization) %>

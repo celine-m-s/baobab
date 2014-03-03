@@ -1,23 +1,18 @@
   Baobab::Application.routes.draw do
 
-
-
-  resources :deals
-
   root :to => "organizations#dashboard"
 
   devise_for :users
 
   resources :organizations do
     resources :artworks, only: [:new, :index, :create]
-
     resources :artists do
       resources :artworks, except: [:new, :index, :create]
     end
-
-    resources :inventory_items
-  end
+    resources :items
     resources :customers
+    resources :deals
+  end
 
 
 

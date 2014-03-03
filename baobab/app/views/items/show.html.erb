@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Entry date:</strong>
+  <%= @item.entry_date %>
+</p>
+
+<p>
+  <strong>Exit date:</strong>
+  <%= @item.exit_date %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @item.location %>
+</p>
+
+<p>
+  <strong>Artwork:</strong>
+  <%= @item.artwork %>
+</p>
+
+<p>
+  <strong>Edition:</strong>
+  <%= @item.edition %>
+</p>
+
+<%= link_to 'Edit', edit_organization_item_path(@organization, @item) %> |
+<%= link_to 'Back', organization_items_path(@organization) %>

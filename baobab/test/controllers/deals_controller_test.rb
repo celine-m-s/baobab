@@ -21,7 +21,7 @@ class DealsControllerTest < ActionController::TestCase
       post :create, deal: { customer: @deal.customer, date: @deal.date, deposit: @deal.deposit, due_date: @deal.due_date, invoice_number: @deal.invoice_number, payment_status: @deal.payment_status, payment_type: @deal.payment_type, price: @deal.price, shipping_cost: @deal.shipping_cost, vat: @deal.vat }
     end
 
-    assert_redirected_to deal_path(assigns(:deal))
+    assert_redirected_to organization_deal_path(assigns(:deal))
   end
 
   test "should show deal" do
@@ -36,7 +36,7 @@ class DealsControllerTest < ActionController::TestCase
 
   test "should update deal" do
     patch :update, id: @deal, deal: { customer: @deal.customer, date: @deal.date, deposit: @deal.deposit, due_date: @deal.due_date, invoice_number: @deal.invoice_number, payment_status: @deal.payment_status, payment_type: @deal.payment_type, price: @deal.price, shipping_cost: @deal.shipping_cost, vat: @deal.vat }
-    assert_redirected_to deal_path(assigns(:deal))
+    assert_redirected_to organization_deal_path(assigns(:deal))
   end
 
   test "should destroy deal" do
@@ -44,6 +44,6 @@ class DealsControllerTest < ActionController::TestCase
       delete :destroy, id: @deal
     end
 
-    assert_redirected_to deals_path
+    assert_redirected_to organization_deals_path
   end
 end

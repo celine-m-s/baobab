@@ -13,8 +13,12 @@ class OrganizationPolicy < ApplicationPolicy
       user.organization == @record || user.super_admin?
     end
 
-    def edit
-      user.admin? && user.organization == @record || user.super_admin?
+    def update?
+      (user.admin? && user.organization == @record) || user.super_admin?
+    end
+
+    def edit?
+      update?
     end
 
     def create?

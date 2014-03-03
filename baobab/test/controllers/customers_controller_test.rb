@@ -21,7 +21,7 @@ class CustomersControllerTest < ActionController::TestCase
       post :create, customer: { id_card_number: @customer.id_card_number, name: @customer.name }
     end
 
-    assert_redirected_to customer_path(assigns(:customer))
+    assert_redirected_to organization_customer_path(assigns(:customer))
   end
 
   test "should show customer" do
@@ -36,7 +36,7 @@ class CustomersControllerTest < ActionController::TestCase
 
   test "should update customer" do
     patch :update, id: @customer, customer: { id_card_number: @customer.id_card_number, name: @customer.name }
-    assert_redirected_to customer_path(assigns(:customer))
+    assert_redirected_to organization_customer_path(assigns(:customer))
   end
 
   test "should destroy customer" do
@@ -44,6 +44,6 @@ class CustomersControllerTest < ActionController::TestCase
       delete :destroy, id: @customer
     end
 
-    assert_redirected_to customers_path
+    assert_redirected_to organization_customers_path
   end
 end
