@@ -11,6 +11,13 @@
     </div>
   <% end %>
 
+  
+  <div> 
+    <%= f.fields_for :pictures, @picture do |picture_form| %>
+      <%= picture_form.file_field :picture %>
+    <% end %>
+  </div>
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
