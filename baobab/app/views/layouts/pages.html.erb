@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Baobab</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- this code between <header> ... </header> -->
+  <%= stylesheet_link_tag "flat-ui/bootstrap/css/bootstrap.css"%>
+  <%= stylesheet_link_tag "flat-ui/bootstrap/css/bootstrap-responsive.css"%>
+  <%= stylesheet_link_tag "flat-ui/css/flat-ui.css"%>
+  <!-- Using only with Flat-UI (free)-->
+  <%= stylesheet_link_tag "common-files/css/icon-font.css"%>
+  <!-- end -->
+  <%= stylesheet_link_tag "common-files/css/animations.css"%>
+  <%= javascript_include_tag "flat-ui/js/jquery-1.8.3.min.js"%>
+  <!--[if lt IE 8]>
+  <script src="../flat-ui/js/icon-font-ie7.js"></script>
+  <![endif]-->
+
+  <!-- header -->
+  <%= stylesheet_link_tag "ui-kit/ui-kit-header/css/style.css"%>
+  <!-- content -->
+  <%= stylesheet_link_tag "ui-kit/ui-kit-content/css/style.css"%>
+  <!-- blog -->
+  <%= stylesheet_link_tag "ui-kit/ui-kit-blog/css/style.css"%>
+  <!-- contacts -->
+  <%= stylesheet_link_tag "ui-kit/ui-kit-contacts/css/style.css"%>
+  <!-- crew -->
+  <%= stylesheet_link_tag "ui-kit/ui-kit-crew/css/style.css"%>
+  <!-- price -->
+  <%= stylesheet_link_tag "ui-kit/ui-kit-price/css/style.css"%>
+  <!-- projects -->
+  <%= stylesheet_link_tag "ui-kit/ui-kit-projects/css/style.css"%>
+  <!-- footer -->
+  <%= stylesheet_link_tag "ui-kit/ui-kit-footer/css/style.css"%>
+
+</head>
+
+<body>
+
+
+   <%= yield %>
+
+  
+  <footer>
+    footer
+  </footer>
+
+  <!-- Placed at the end of the document so the pages load faster -->
+  <%= javascript_include_tag "flat-ui/js/jquery-1.8.3.min.js" %>
+  <%= javascript_include_tag "flat-ui/js/bootstrap.min.js" %>
+
+  <!--[if lt IE 8]>
+  <script src="../../flat-ui/js/icon-font-ie7.js"></script>
+  <![endif]-->
+  <%= javascript_include_tag "common-files/js/jquery.scrollTo-1.4.3.1-min.js" %>
+  <%= javascript_include_tag "common-files/js/modernizr.custom.js" %>
+  <%= javascript_include_tag "common-files/js/page-transitions.js" %>
+  <%= javascript_include_tag "common-files/js/startup-kit.js" %>
+  <%= javascript_include_tag "pages" %>
+
+  <%= javascript_include_tag "common-files/js/easing.min.js" %>
+  <%= javascript_include_tag "common-files/js/jquery.svg.js" %>
+  <%= javascript_include_tag "common-files/js/jquery.svganim.js" %>
+  <%= javascript_include_tag "common-files/js/jquery.parallax.min.js" %>
+</body>
+
+</html>
