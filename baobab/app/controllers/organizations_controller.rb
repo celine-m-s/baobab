@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:new, :show, :edit, :update, :destroy]
+  before_action :set_organization, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /organizations
@@ -78,4 +78,5 @@ class OrganizationsController < ApplicationController
     def organization_params
       params.require(:organization).permit(:name, :artist, :customer)
     end
+
 end

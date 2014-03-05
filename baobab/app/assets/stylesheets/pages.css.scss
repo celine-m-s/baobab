@@ -1,0 +1,37 @@
+h1 a {
+	color: white;
+}
+
+h1 a:hover {
+	opacity: 0.5;
+	color: white;
+}
+
+#artworks {
+	background-color: rgb(175,182,187);
+	margin: 0;
+	padding: 40px 80px 40px 80px;
+}
+
+#portfolio .span3:nth-child(5) {
+	margin-left: 0;
+}
+
+#portfolio .span3 {
+	margin-bottom: 20px;
+}
+
+#portfolio p {
+	margin-top: 10px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: rgb(100,100,100)
+}
+
+h4 {
+	margin-bottom: 50px;
+
+}
+
+#portfolio {
+	width: 100%;
+}

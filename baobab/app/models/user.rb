@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :organization
+  accepts_nested_attributes_for :organization
 
   enum roles: { editor: 0, admin: 1, super_admin: 2 }
-
 end

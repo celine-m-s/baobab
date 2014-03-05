@@ -1,16 +1,30 @@
-Baobab::Application.routes.draw do
+   Baobab::Application.routes.draw do
 
-  devise_for :users
+
+  get 'pages/index'
+
+  get 'pages/benjamin_graindorge'
+
+  get 'pages/raymond_depardon'
+
+  get 'pages/show_artwork'
+
+  get 'pages/contact'
+
   root :to => "organizations#dashboard"
+  
+  devise_for :users
 
   resources :organizations do
-
     resources :artworks, only: [:new, :index, :create]
 
     resources :artists do
       resources :artworks, except: [:new, :index, :create]
-    end  
+    end
+
+    resources :customers
   end
+
 
 
 
