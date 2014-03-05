@@ -2,3 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Classes
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  border: 1px solid lightgrey;
+  padding: 50px;
+  border-radius: 5px;
+}
+
+h1 {
+	text-align: center;
+}
+
+form div {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+form input, .text, .select {
+	width: 100%;
+}

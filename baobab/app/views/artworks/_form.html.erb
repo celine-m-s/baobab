@@ -1,5 +1,7 @@
+<div class="center-block">
 
-<%= form_for (@artwork) do |f| %>
+<%= simple_form_for (@artwork), defaults: { input_html: { class: 'form-horizontal' } } do |f| %>
+
   <% if @artwork.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@artwork.errors.count, "error") %> prohibited this artwork from being saved:</h2>
@@ -12,32 +14,46 @@
     </div>
   <% end %>
 
-
-  <div>
+  <div class= "form-group">
     <%= f.fields_for :pictures, @picture do |picture_form| %>
       <%= picture_form.file_field :picture %>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :artist_id %><br>
-    <%= f.select(:artist_id, @artists_list, {include_blank: 'Select Artist'}) %>
+    <%= f.input :title %>
+
+    <%= f.input :artist_id, collection: @artists_list, include_blank: 'Select Artist', label: false %>
+
+  <div class="btn-group">
+    <p><%= link_to 'Add a new artist', new_artist_path, class: "btn btn-success" %></p>
   </div>
 
-  <p><%= link_to 'Add a new artist', new_artist_path %></p>
+  <%= f.input :year %>
 
-  <div class="field">
-    <%= f.label :year %><br>
-    <%= f.number_field :year %>
-  </div>
-  <div class="field">
-    <p><%= f.check_box :on_website %>
-    <%= f.label :on_website %></p>
-  </div>
+  <%= f.input :on_website, as: :boolean, label: 'display on website' %>
+
+  <%= f.input :bibliography %>
+
+  <%= f.input :condition_report %>
+
+  <%= f.input :edition_type %>
+
+  <%= f.input :provenance %>
+
+  <%= f.input :signature %>
+
+  <%= f.input :medium %>
+
+  <%= f.input :comment %>
+
+  <%= f.input :height %>
+
+  <%= f.input :width %>
+
+  <%= f.input :depth %>
+
+  <%= f.input :estimation %>
+<!-- 
   <div class="field">
     <%= f.label :order_status %><br>
     <%= f.text_field :order_status %>
@@ -87,11 +103,11 @@
     <%= f.number_field :estimation %>
   </div>
 
-  <div>
+ -->  <div>
     <h4>Item details</h4>
   </div>
 
-  <div>
+<!--   <div>
     <%= f.fields_for :items, @item do |item_form| %>
       <%= f.label :edition %><br>
       <%=  item_form.text_field :edition %> <br>
@@ -100,9 +116,10 @@
       <%= f.label :entry_date %><br>
       <%=  item_form.date_select :entry_date %> <br>
     <% end %>
-  </div>
+  </div> -->
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, class: 'btn btn-warning' %>
+
 <% end %>
+
+</div>
