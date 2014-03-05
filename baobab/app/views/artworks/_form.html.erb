@@ -1,12 +1,12 @@
-<%= form_for(@artwork, :url => (@artist.nil? ? organization_artworks_path(@organization) : organization_artist_artwork_path(@organization, @artist, @artwork))) do |f| %>
+<%= form_for (@artwork) do |f| %>
   <% if @artwork.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@artwork.errors.count, "error") %> prohibited this artwork from being saved:</h2>
 
       <ul>
-      <% @artwork.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @artwork.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -20,7 +20,7 @@
     <%= f.select(:artist_id, @artists_list, {include_blank: 'Select Artist'}) %>
   </div>
 
-  <p><%= link_to 'Add a new artist', new_organization_artist_path(current_user.organization_id)%></p>
+  <p><%= link_to 'Add a new artist', new_artist_path %></p>
 
   <div class="field">
     <%= f.label :year %><br>
@@ -77,6 +77,21 @@
   <div class="field">
     <%= f.label :estimation %><br>
     <%= f.number_field :estimation %>
+  </div>
+
+  <div>
+    <h4>Item details</h4>
+  </div>
+
+  <div>
+    <%= f.fields_for :items, @item do |item_form| %>
+      <%= f.label :edition %><br>
+      <%=  item_form.text_field :edition %> <br>
+      <%= f.label :location %><br>
+      <%=  item_form.text_field :location %> <br>
+      <%= f.label :entry_date %><br>
+      <%=  item_form.date_select :entry_date %> <br>
+    <% end %>
   </div>
 
   <div class="actions">

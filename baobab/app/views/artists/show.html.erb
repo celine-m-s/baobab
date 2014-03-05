@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Name:</strong>
@@ -13,11 +13,11 @@
 <p>
 	<strong>My artworks:</strong>
 	<% @artist.artworks.each do |artwork| %>
-		<li><%= link_to "#{artwork.title}", organization_artist_artwork_path(@organization, artwork.artist_id, artwork.id) %></li>
+		<li><%= link_to "#{artwork.title}", artwork_path %></li>
 	<% end %>
 </p>
 
-<p><%= link_to 'Add a new artwork', new_organization_artwork_path(current_user.organization_id)%></p>
+<p><%= link_to 'Add a new artwork', new_artwork_path%></p>
 
-<%= link_to 'Edit', edit_organization_artist_path(@organization, @artist) %> |
-<%= link_to 'Back', organization_artists_path(@organization) %>
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path() %>

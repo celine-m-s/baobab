@@ -1,4 +1,4 @@
-class OrganizationPolicy < ApplicationPolicy
+class ArtworkPolicy < ApplicationPolicy
   class Scope < Struct.new(:user, :scope)
     def resolve
       scope
@@ -10,11 +10,11 @@ class OrganizationPolicy < ApplicationPolicy
     end
 
     def show?
-      user.organization == record || user.super_admin?
+      user.super_admin? || user.organization == record.artist.organization
     end
 
     def update?
-      (user.admin? && user.organization == record) || user.super_admin?
+      user.super_admin? || user.organization == record.artist.organization
     end
 
     def edit?
@@ -22,7 +22,7 @@ class OrganizationPolicy < ApplicationPolicy
     end
 
     def create?
-     user.admin? && user.organization = record
+      user
     end
 
 end

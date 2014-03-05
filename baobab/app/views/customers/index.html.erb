@@ -17,7 +17,7 @@
         <td><%= customer.name %></td>
         <td><%= customer.id_card_number %></td>
         <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_organization_customer_path(@organization, customer) %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Customer', new_organization_customer_path(@organization) %>
+<%= link_to 'New Customer', new_customer_path %>

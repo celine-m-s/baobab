@@ -31,7 +31,7 @@
         <td><%= deal.vat %></td>
         <td><%= deal.payment_status %></td>
         <td><%= link_to 'Show', deal %></td>
-        <td><%= link_to 'Edit', edit_organization_deal_path(@organization, deal) %></td>
+        <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
         <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -40,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Deal', new_organization_deal_path(@organization) %>
+<%= link_to 'New Deal', new_deal_path %>

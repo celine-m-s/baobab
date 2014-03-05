@@ -1,12 +1,11 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
-  before_action :set_organization
 
 
   # GET /artists
   # GET /artists.json
   def index
-    @artists = Artist.all
+    @artists = current_user.organization.artists
   end
 
   # GET /artists/1
@@ -17,6 +16,7 @@ class ArtistsController < ApplicationController
   # GET /artists/new
   def new
     @artist = Artist.new
+    authorize @artist
   end
 
   # GET /artists/1/edit
@@ -28,10 +28,11 @@ class ArtistsController < ApplicationController
   def create
     @artist = Artist.new(artist_params)
     @artist.organization_id = params[:organization_id]
+    authorize @artist
 
     respond_to do |format|
       if @artist.save
-        format.html { redirect_to organization_artist_url(organization_id: @organization.id, id: @artist.id), notice: 'Artist was successfully created.' }
+        format.html { redirect_to artist_url(id: @artist.id), notice: 'Artist was successfully created.'  }
         format.json { render action: 'show', status: :created, location: @artist }
       else
         format.html { render action: 'new' }
@@ -45,7 +46,7 @@ class ArtistsController < ApplicationController
   def update
     respond_to do |format|
       if @artist.update(artist_params)
-        format.html { redirect_to organization_artist_url(organization_id: @organization.id, id: @artist.id), notice: 'Artist was successfully updated.' }
+        format.html { redirect_to artist_url(id: @artist.id), notice: 'Artist was successfully created.'  }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -59,7 +60,7 @@ class ArtistsController < ApplicationController
   def destroy
     @artist.destroy
     respond_to do |format|
-      format.html { redirect_to organization_artists_url(organization_id: @organization.id) }
+      format.html { redirect_to artists_url }
       format.json { head :no_content }
     end
   end
@@ -75,7 +76,4 @@ class ArtistsController < ApplicationController
       params.require(:artist).permit(:name, :vat_number, :organization_id)
     end
 
-    def set_organization
-      @organization = Organization.find(params[:organization_id])
-    end
 end

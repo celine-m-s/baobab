@@ -4,17 +4,12 @@
 
   devise_for :users
 
-  resources :organizations do
-    resources :artworks, only: [:new, :index, :create]
-    resources :artists do
-      resources :artworks, except: [:new, :index, :create]
-    end
+    resources :artworks
+    resources :organizations
+    resources :artists
     resources :items
     resources :customers
     resources :deals
-  end
-
-
 
 # new_organization_artist_artwork_path
 

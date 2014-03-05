@@ -2,4 +2,9 @@
 	<div class:"row">
   			<div class="alert alert-<%= key %>"><%= value.html_safe %></div>
 	</div>
+
+   <!-- temporary alerts -->
+  <script type="text/javascript">
+  $('.alert').delay(2000).fadeOut();
+  </script>
 <% end %>
