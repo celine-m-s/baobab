@@ -12,6 +12,9 @@ class PagesController < ActionController::Base
   end
 
   def benjamin_graindorge
+      artist = Artist.where(name: "Benjamin Graindorge")
+      @artist = artist[0]
+      @artworks = artist[0].artworks.where(on_website: true)
   end
 
   def contact
