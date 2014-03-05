@@ -25,10 +25,11 @@ class CustomersController < ApplicationController
   # POST /customers.json
   def create
     @customer = Customer.new(customer_params)
+    @customer.organization_id = params[:organization_id]
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        format.html { redirect_to organization_customer_url(organization_id: @organization.id, id: @customer.id), notice: 'Customer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @customer }
       else
         format.html { render action: 'new' }
@@ -70,5 +71,9 @@ class CustomersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
       params.require(:customer).permit(:name, :id_card_number)
+    end
+
+    def set_organization
+      @organization = Organization.find(params[:organization_id])
     end
 end

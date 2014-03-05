@@ -6,6 +6,6 @@ class Organization < ActiveRecord::Base
   has_many :items, dependent: :destroy
 
   has_many :artworks, through: :artists
-  # has_many :customers, dependent: :destroy
+  has_many :customers, dependent: :destroy
 
 end

@@ -1,6 +1,8 @@
 class ArtworksController < ApplicationController
+
   before_action :set_artwork, only: [:show, :edit, :update, :destroy]
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
+  after_action :build_pictures, except: [:index, :show, :destroy]
 
   # GET /artworks
   # GET /artworks.json
@@ -17,6 +19,7 @@ class ArtworksController < ApplicationController
   def new
     @artists_list = current_user.organization.artists.collect {|p| [ p.name, p.id ] }
     @artwork = Artwork.new
+    build_pictures
     authorize @artwork
   end
 
@@ -82,6 +85,10 @@ class ArtworksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artwork_params
-      params.require(:artwork).permit(:id, :title, :year, :on_website, :order_status, :bibliography, :condition_report, :edition_type, :provenance, :signature, :medium, :comment, :height, :width, :depth, :estimation, :artist_id, items_attributes: [:id, :edition, :entry_date, :exit_date, :location])
+      params.require(:artwork).permit(:id, :title, :year, :on_website, :order_status, :bibliography, :condition_report, :edition_type, :provenance, :signature, :medium, :comment, :height, :width, :depth, :estimation, :artist_id, items_attributes: [:id, :edition, :entry_date, :exit_date, :location], pictures_attributes: [:id, :picture])
+    end
+
+    def build_pictures
+      @picture = @artwork.pictures.build
     end
 end

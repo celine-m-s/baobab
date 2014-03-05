@@ -3,7 +3,7 @@
 <h3>My artists:</h3>
 
 <p>
-<% if user_signed_in? %>
+
   <% @organization.artists.each do |artist| %>
   	<li><%= link_to "#{artist.name}", artist_path(artist)  %></li>
   <% end %>
@@ -15,5 +15,16 @@
 	<% @organization.artworks.each do |artwork| %>
 		<li><%= link_to "#{artwork.title}", artwork_path(artwork.id) %>  </li>
 	<% end %>
-<% end %>
+
 </p>
+
+<h3>My customers:</h3>
+
+<p>
+	<% @organization.customers.each do |customer| %>
+		<li><%= link_to "#{customer.name}", customer_path(@organization, customer.id) %>  </li>
+	<% end %>
+
+</p>
+
+<p> <%= link_to "Create a new customer", new_customer_path(@organization) %> </p>

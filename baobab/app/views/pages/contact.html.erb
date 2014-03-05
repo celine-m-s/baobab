@@ -1,0 +1,55 @@
+<header class="header-8">
+  <div class="container">
+    <div class="navbar span12 ">
+      <div class="navbar-inner">
+        <button type="button" class="btn btn-navbar"></button>
+        <a class="brand" href="#"><img src="../../common-files/icons/Infinity-Loop_2x.png" width="50" height="50" alt=""> Gallerie Gala</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li> <%= link_to "Accueil", pages_index_path %> </li>
+            <li> <%= link_to "R. Depardon", pages_raymond_depardon_path %>  </li>
+            <li> <%= link_to "B. Graindorge", pages_benjamin_graindorge_path %>  </li>
+            <li> <%= link_to "Contact", pages_contact_path, class: "active" %>  </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="contacts-2">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <h3>Nous contacter</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span6">
+                <form>
+                    <label class="h6">Prénom / Nom</label>
+                    <input type="text">
+                    <label class="h6">E-mail</label>
+                    <input type="text">
+                    <label class="h6">Message</label>
+                    <textarea rows="7"></textarea>
+                    <button type="submit" class="btn btn-primary"><span class="fui-mail"></span></button>
+                </form>
+            </div>
+            <div class="span5 offset1">
+                <h6>Trouver la gallerie</h6>
+                <p>10 rue des échasses, 75001 Paris</p>
+                <div class="map">
+                    <!--map-->
+                    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;t=m&amp;ll=40.714353,-74.005973&amp;spn=0.04554,0.072956&amp;z=12&amp;output=embed"></iframe>
+                </div>
+                <h6>Appelez-nous !</h6>
+                <p>Nous nous ferons un plaisir de vous répondre.</p>
+                <div class="links">
+                    <a href="#"><span class="fui-phone"></span> +33 623 34 90 00</a><br>
+                    <a href="#"><span class="fui-mail"></span> mr.madbyte@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </div><!--/.container-->
+</section>
