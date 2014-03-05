@@ -728,7 +728,7 @@ section * {
   color: white;
 }
 body {
-  padding-top: 66px;
+  padding-top: 0px;
   position: relative;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -2129,6 +2129,7 @@ body section[class*=content-] {
   position: relative;
 }
 .content-15 h3 {
+  margin-top:68px;
   margin-bottom: 68px;
   font-size: 37px;
   font-weight: normal;

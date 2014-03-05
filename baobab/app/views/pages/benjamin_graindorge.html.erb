@@ -1,2 +1,49 @@
-<h1>Pages#show_collection</h1>
-<p>Find me in app/views/pages/show_collection.html.erb</p>
+
+
+<header class="header-8">
+  <div class="container">
+    <div class="navbar span12 ">
+      <div class="navbar-inner">
+        <button type="button" class="btn btn-navbar"></button>
+        <a class="brand" href="#"><img src="../../common-files/icons/Infinity-Loop_2x.png" width="50" height="50" alt=""> Gallerie Gala</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li> <%= link_to "Accueil", pages_index_path %> </li>
+            <li> <%= link_to "R. Depardon", pages_raymond_depardon_path, class: "active %>  </li>
+            <li> <%= link_to "B. Graindorge", pages_benjamin_graindorge_path"%>  </li>
+            <li> <%= link_to "Contact", pages_contact_path %>  </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+    <div class="row-fluid">
+        <h4 class="underline"><span>Collection exposée</span></h4>
+
+        <div id="portfolio">
+          <div class="row-fluid">
+             <div class="span3">
+                  <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQSlkfizo8Zj0MGNAt2p9g4JFnjOT4017-sR0Cjodujh5Yqb8JJ">
+                  <p>
+                    <%= @artist.name %>
+                  </p>
+             </div>
+
+             <% @artworks.each do |artwork| %>
+             <div class="span3">
+              <% artwork.pictures.each do |pict| %>
+                <%= image_tag pict.picture(:medium) %>
+              <% end %>
+              <p>
+                <%= artwork.title %>
+              </p>
+            </div>
+            <% end %>
+
+          </div>
+       </div>
+    </div>
+</div>

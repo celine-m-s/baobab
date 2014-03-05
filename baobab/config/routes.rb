@@ -5,7 +5,7 @@
 
   get 'pages/benjamin_graindorge'
 
-  get 'pages/cms'
+  get 'pages/raymond_depardon'
 
   get 'pages/show_artwork'
 

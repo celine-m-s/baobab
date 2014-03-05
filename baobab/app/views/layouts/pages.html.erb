@@ -5,50 +5,73 @@
 
   <title>Baobab</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 <!-- this code between <header> ... </header> -->
-  <%= stylesheet_link_tag "flat-ui/bootstrap/css/bootstrap.css"%>
-  <%= stylesheet_link_tag "flat-ui/bootstrap/css/bootstrap-responsive.css"%>
-  <%= stylesheet_link_tag "flat-ui/css/flat-ui.css"%>
+  <%= stylesheet_link_tag "flat-ui/bootstrap/css/bootstrap.css", media: "all"%>
+  <%= stylesheet_link_tag "flat-ui/bootstrap/css/bootstrap-responsive.css", media: "all"%>
+  <%= stylesheet_link_tag "flat-ui/css/flat-ui.css", media: "all"%>
   <!-- Using only with Flat-UI (free)-->
-  <%= stylesheet_link_tag "common-files/css/icon-font.css"%>
+  <%= stylesheet_link_tag "common-files/css/icon-font.css", media: "all"%>
   <!-- end -->
-  <%= stylesheet_link_tag "common-files/css/animations.css"%>
+  <%= stylesheet_link_tag "common-files/css/animations.css", media: "all"%>
   <%= javascript_include_tag "flat-ui/js/jquery-1.8.3.min.js"%>
   <!--[if lt IE 8]>
   <script src="../flat-ui/js/icon-font-ie7.js"></script>
   <![endif]-->
 
   <!-- header -->
-  <%= stylesheet_link_tag "ui-kit/ui-kit-header/css/style.css"%>
+  <%= stylesheet_link_tag "ui-kit/ui-kit-header/css/style.css", media: "all"%>
   <!-- content -->
-  <%= stylesheet_link_tag "ui-kit/ui-kit-content/css/style.css"%>
+  <%= stylesheet_link_tag "ui-kit/ui-kit-content/css/style.css", media: "all"%>
   <!-- blog -->
-  <%= stylesheet_link_tag "ui-kit/ui-kit-blog/css/style.css"%>
+  <%= stylesheet_link_tag "ui-kit/ui-kit-blog/css/style.css", media: "all"%>
   <!-- contacts -->
-  <%= stylesheet_link_tag "ui-kit/ui-kit-contacts/css/style.css"%>
+  <%= stylesheet_link_tag "ui-kit/ui-kit-contacts/css/style.css", media: "all"%>
   <!-- crew -->
-  <%= stylesheet_link_tag "ui-kit/ui-kit-crew/css/style.css"%>
+  <%= stylesheet_link_tag "ui-kit/ui-kit-crew/css/style.css", media: "all"%>
   <!-- price -->
-  <%= stylesheet_link_tag "ui-kit/ui-kit-price/css/style.css"%>
+  <%= stylesheet_link_tag "ui-kit/ui-kit-price/css/style.css", media: "all"%>
   <!-- projects -->
-  <%= stylesheet_link_tag "ui-kit/ui-kit-projects/css/style.css"%>
+  <%= stylesheet_link_tag "ui-kit/ui-kit-projects/css/style.css", media: "all"%>
   <!-- footer -->
-  <%= stylesheet_link_tag "ui-kit/ui-kit-footer/css/style.css"%>
-
+  <%= stylesheet_link_tag "ui-kit/ui-kit-footer/css/style.css", media: "all"%>
 </head>
 
 <body>
 
-
    <%= yield %>
 
   
-  <footer>
-    footer
-  </footer>
+   <footer class="footer-7 ">
+       <div class="container">
+           <a href="#"><span class="fui-home"> </span></a>
+           <nav>
+               <ul>
+                <li> <%= link_to "Accueil", pages_index_path %> </li>
+                <li> <%= link_to "R. Depardon", pages_raymond_depardon_path %>  </li>
+                <li class="scroll-btn"><a href="#" class="scroll-top fui-arrow-up"> </a></li>
+                <li> <%= link_to "B. Graindorge", pages_benjamin_graindorge_path %>  </li>
+                <li> <%= link_to "Contact", pages_contact_path %>  </li>
+
+               </ul>
+           </nav>
+           <div class="social-btns">
+               <a href="#">
+                   <div class="fui-vimeo"></div>
+                   <div class="fui-vimeo"></div>
+               </a>
+               <a href="#">
+                   <div class="fui-facebook"></div>
+                   <div class="fui-facebook"></div>
+               </a>
+               <a href="#">
+                   <div class="fui-twitter"></div>
+                   <div class="fui-twitter"></div>
+               </a>
+           </div>
+       </div>
+   </footer>
 
   <!-- Placed at the end of the document so the pages load faster -->
   <%= javascript_include_tag "flat-ui/js/jquery-1.8.3.min.js" %>
