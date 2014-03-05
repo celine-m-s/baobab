@@ -1,6 +1,16 @@
    Baobab::Application.routes.draw do
 
 
+  get 'pages/index'
+
+  get 'pages/benjamin_graindorge'
+
+  get 'pages/raymond_depardon'
+
+  get 'pages/show_artwork'
+
+  get 'pages/contact'
+
   root :to => "organizations#dashboard"
   
   devise_for :users

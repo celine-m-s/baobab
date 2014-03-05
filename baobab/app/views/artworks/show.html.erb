@@ -6,6 +6,13 @@
 </p>
 
 <p>
+  <strong>Picture :</strong>
+  <% @artwork.pictures.each do |pict| %>
+    <li style="list-style-type: none"><%= image_tag pict.picture(:medium) %></li>
+  <% end %>
+</p>
+
+<p>
   <strong>Year:</strong>
   <%= @artwork.year %>
 </p>

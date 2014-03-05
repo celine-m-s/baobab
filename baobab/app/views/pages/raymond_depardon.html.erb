@@ -1,0 +1,44 @@
+
+
+<header class="header-8">
+  <div class="container">
+    <div class="navbar span12 ">
+      <div class="navbar-inner">
+        <button type="button" class="btn btn-navbar"></button>
+        <%= link_to "Gallerie Gala", pages_index_path, class: "brand" %>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li> <%= link_to "Accueil", pages_index_path %> </li>
+            <li> <%= link_to "R. Depardon", pages_raymond_depardon_path, class: "active" %>  </li>
+            <li> <%= link_to "B. Graindorge", pages_benjamin_graindorge_path%>  </li>
+            <li> <%= link_to "Contact", pages_contact_path %>  </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="artworks">
+  <div class="container">
+      <div class="row-fluid">
+          <h4 class="underline"><span>Raymond Depardon</span></h4>
+
+          <div id="portfolio">
+            <div class="row-fluid">
+               <% @artworks.each do |artwork| %>
+               <div class="span3">
+                <% artwork.pictures.each do |pict| %>
+                  <%= image_tag pict.picture(:medium) %>
+                <% end %>
+                <p>
+                  <%= artwork.title %>
+                </p>
+              </div>
+              <% end %>
+
+            </div>
+         </div>
+      </div>
+  </div>
+</div>
