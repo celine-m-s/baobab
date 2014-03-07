@@ -26,3 +26,9 @@ form div {
 form input, .text, .select {
 	width: 100%;
 }
+
+
+div.input.boolean.optional > label {
+  margin-left: 10px;
+  margin-bottom: 0;
+}

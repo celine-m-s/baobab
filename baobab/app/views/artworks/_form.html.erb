@@ -15,7 +15,7 @@
   <% end %>
 
   <div class= "form-group">
-    <%= f.fields_for :pictures, @picture do |picture_form| %>
+    <%= f.fields_for :pictures @picture do |picture_form| %>
       <%= picture_form.file_field :picture %>
     <% end %>
   </div>
@@ -53,57 +53,7 @@
   <%= f.input :depth %>
 
   <%= f.input :estimation %>
-<!-- 
-  <div class="field">
-    <%= f.label :order_status %><br>
-    <%= f.text_field :order_status %>
-  </div>
-  <div class="field">
-    <%= f.label :bibliography %><br>
-    <%= f.text_area :bibliography %>
-  </div>
-  <div class="field">
-    <%= f.label :condition_report %><br>
-    <%= f.text_area :condition_report %>
-  </div>
-  <div class="field">
-    <%= f.label :edition_type %><br>
-    <%= f.text_field :edition_type %>
-  </div>
-  <div class="field">
-    <%= f.label :provenance %><br>
-    <%= f.text_field :provenance %>
-  </div>
-  <div class="field">
-    <%= f.label :signature %><br>
-    <%= f.text_field :signature %>
-  </div>
-  <div class="field">
-    <%= f.label :medium %><br>
-    <%= f.text_field :medium %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
-  </div>
-  <div class="field">
-    <%= f.label :height %><br>
-    <%= f.number_field :height %>
-  </div>
-  <div class="field">
-    <%= f.label :width %><br>
-    <%= f.number_field :width %>
-  </div>
-  <div class="field">
-    <%= f.label :depth %><br>
-    <%= f.number_field :depth %>
-  </div>
-  <div class="field">
-    <%= f.label :estimation %><br>
-    <%= f.number_field :estimation %>
-  </div>
-
- -->  <div>
+<div>
     <h4>Item details</h4>
   </div>
 

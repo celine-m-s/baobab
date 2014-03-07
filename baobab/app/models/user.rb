@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :organization
 
   enum roles: { editor: 0, admin: 1, super_admin: 2 }
+  validates_associated :organization
+     
 end

@@ -3,6 +3,7 @@ class OrganizationsController < ApplicationController
   before_action :authenticate_user!
   # GET /organizations
   # GET /organizations.json
+
   def index
     @organizations = Organization.all
     authorize @organizations
@@ -26,9 +27,12 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.new(organization_params)
+    
 
     respond_to do |format|
       if @organization.save
+        @organization.organizationslug = params[:organizationslug].to_slug.create
+        bla
         format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
         format.json { render action: 'show', status: :created, location: @organization }
       else
@@ -66,6 +70,8 @@ class OrganizationsController < ApplicationController
     @organization = current_user.organization
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_organization
@@ -75,7 +81,7 @@ class OrganizationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
-      params.require(:organization).permit(:name, :artist, :customer)
+      params.require(:organization).permit(:name, :artist, :customer, :organizationslug)
     end
 
 end

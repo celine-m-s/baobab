@@ -17,6 +17,8 @@
     	<%= f.fields_for :organization, resource.build_organization do |org_f| %>
     		<p><%= org_f.label :name %></p>
     		<p><%= org_f.text_field :name %></p>
+        <p><%= org_f.label :organizationslug %></p>
+        <p><%= org_f.text_field :organizationslug %></p>
     	<% end %>
     </div>
 
